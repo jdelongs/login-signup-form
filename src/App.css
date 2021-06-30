@@ -1,38 +1,112 @@
-.App {
+/*Component Btn Styles */
+.actionBtn {
+  border-radius: 10px;
+  background: #27323e;
+  border: 2px solid #27323e;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+}
+.whiteBtn {
+  border-radius: 10px;
+  border: 2px solid #27323e;
+  background: white;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+  color: #27323e;
+  cursor: pointer;
+  margin-bottom: 5rem;
+}
+
+.whiteBtn:hover {
+  background: #27323e;
+  color: white;
+  transition: all 0.4s;
+}
+
+.actionBtn:hover {
+  background: white;
+  color: #27323e;
+  transition: all 0.4s;
+}
+.btn_container {
   text-align: center;
+  margin-bottom: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Reusable styles */
+.input {
+  border-radius: 8px;
+  border: 2px solid #eaeaea;
+  height: 2rem;
+  font-size: 1rem;
+  padding-left: 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-signup_list-link {
+  display: block;
+  text-decoration: none;
+  color: black;
+  background: #ffffff;
+  padding: 1.5rem 5rem;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form_container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* LANDING STYLES */
+.landing_container {
+  background: #f1f1f1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.landing_content {
+  padding: 1rem;
+  height: 100%;
+}
+
+.landing_welcome {
+  border-bottom: 2px solid hsl(0, 0%, 92%);
+  line-height: 3rem;
+  margin-top: 0;
+}
+
+/* LOGIN STYLES */
+
+.login-signup_list {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+/* PROFILE STYLES */
+
+.profile_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.profile_input {
+  border-radius: 8px;
+  border: 2px solid #eaeaea;
+  height: 2rem;
+  width: 25rem;
+  font-size: 1rem;
+  padding-left: 1rem;
 }

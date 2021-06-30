@@ -1,3 +1,14 @@
+# Project Notes
+
+Resources used were React docs and react-router-dom docs
+
+I ran into an issue with routing due to the fact I didnt want to render router links with the login and sign up pages but instead make it a component of its own.
+
+A solution to this was instead of passing state down and around to different pages and components a few layers deep I looked up React context and used that instead
+
+There is quite a few things I would do with more time such as using css.module or sass
+for styling, creating a proper error component, add more error handling to inputs, add onBlur to inputs so input errors will go away when fixed, make it more mobile friendly
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
