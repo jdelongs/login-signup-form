@@ -2,7 +2,9 @@ import React, { useState, useContext } from "react"
 import Input from "../components/Input"
 import Button from "../components/Button"
 import { useHistory } from "react-router-dom"
-import AuthContext from "../Context/AuthContenxt"
+import AuthContext from "../Context/AuthContext"
+import LoginSignupLinks from "../components/LoginSignupLinks"
+
 const SignUp = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -11,9 +13,9 @@ const SignUp = () => {
     email: "",
     password: "",
   })
-  const { login } = useContext(AuthContext)
 
   let history = useHistory()
+  const { login } = useContext(AuthContext)
 
   const validateForm = () => {
     if (!email || !email.includes("@")) {
@@ -28,53 +30,62 @@ const SignUp = () => {
     }
     return true
   }
+
   const onSubmit = (e) => {
     e.preventDefault()
     if (validateForm()) {
-      history.push("/profile")
       login()
+      history.push("/profile")
     }
   }
+
   return (
-    <form onSubmit={onSubmit}>
-      <div className='signup-container form_container'>
-        <Input
-          setState={setEmail}
-          value={email}
-          className='input'
-          name='email'
-          type='text'
-          placeholder='email'
-          inputId='email'
-          labelName='Email'
-        />
-        <span style={{ color: "red" }}>{formErr.email}</span>
-        <Input
-          setState={setPassword}
-          value={password}
-          className='input'
-          name='password'
-          type='password'
-          placeholder='*****'
-          inputId='password'
-          labelName='Password'
-        />
-        <span style={{ color: "red" }}>{formErr.password}</span>
-        <Input
-          setState={setConfirmPassword}
-          value={confirmPassword}
-          className='input'
-          name='confirm-password'
-          type='password'
-          placeholder='*****'
-          inputId='comfirmPassword'
-          labelName='Confirm Password'
-        />
+    <div className='landing_container'>
+      <div className='landing_content'>
+        <LoginSignupLinks />
+        <form onSubmit={onSubmit}>
+          <div className='signup-container form_container otherAnim'>
+            <Input
+              setState={setEmail}
+              value={email}
+              className='input'
+              name='email'
+              type='text'
+              placeholder='email'
+              inputId='email'
+              labelName='Email'
+            />
+            <span style={{ color: "red" }}>{formErr.email}</span>
+            <Input
+              setState={setPassword}
+              value={password}
+              className='input'
+              name='password'
+              type='password'
+              placeholder='*****'
+              inputId='password'
+              labelName='Password'
+            />
+            <span style={{ color: "red" }}>{formErr.password}</span>
+            <div className='slide-down'>
+              <Input
+                setState={setConfirmPassword}
+                value={confirmPassword}
+                className='input'
+                name='confirm-password'
+                type='password'
+                placeholder='*****'
+                inputId='comfirmPassword'
+                labelName='Confirm Password'
+              />
+            </div>
+          </div>
+          <div className='btn_container'>
+            <Button btnText='Submit' type='submit' className='actionBtn' />
+          </div>
+        </form>
       </div>
-      <div className='btn_container'>
-        <Button btnText='Submit' className='actionBtn' />
-      </div>
-    </form>
+    </div>
   )
 }
 

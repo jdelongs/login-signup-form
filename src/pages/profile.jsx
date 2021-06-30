@@ -6,8 +6,9 @@ import Button from "../components/Button"
 const Profile = () => {
   const [email, setEmail] = useState("")
   const [inputErr, setInputErr] = useState("")
-  const sendForgotPasswordEmail = () => {
+  const sendForgotPasswordEmail = (e) => {
     if (email && email.includes("@")) {
+      setInputErr("")
       alert(`if your account matches ${email} you will recieve an email`)
     } else if (!email || !email.includes("@")) {
       setInputErr("Invalid Email")
@@ -28,9 +29,13 @@ const Profile = () => {
           inputId='email'
         />
         <span style={{ color: "red", marginBottom: "2rem" }}>{inputErr}</span>
-        <div onClick={sendForgotPasswordEmail}>
-          <Button btnText='Reset password' className='whiteBtn' />
-        </div>
+
+        <Button
+          onClick={sendForgotPasswordEmail}
+          btnText='Reset password'
+          type='button'
+          className='whiteBtn'
+        />
         <LogOutButton>Logout</LogOutButton>
       </div>
     </div>

@@ -2,12 +2,12 @@
 
 Resources used were React docs and react-router-dom docs
 
-I ran into an issue with routing due to the fact I didnt want to render router links with the login and sign up pages but instead make it a component of its own.
+I wanted to add some mock authentication and also wanted to check out React Context so I added just a small condition so you cant navigate to profile unless you login or register
 
-A solution to this was instead of passing state down and around to different pages and components a few layers deep I looked up React context and used that instead
+I thought context was a great solution so i didnt have to pass isAuth state to profile, login and sign up pages to set it when the user logs in or out
 
 There is quite a few things I would do with more time such as using css.module or sass
-for styling, creating a proper error component, add more error handling to inputs, add onBlur to inputs so input errors will go away when fixed, make it more mobile friendly
+for styling, creating a proper error component, add more error handling to inputs, add onBlur to inputs so input errors will go away when fixed, make it more mobile friendly, make a proper auth route with react router, as well as figure out sharing logic between login and signup pages as they are very similiar
 
 # Getting Started with Create React App
 

@@ -1,7 +1,14 @@
 import "./App.css"
 import { useState } from "react"
-import AuthContext from "./Context/AuthContenxt"
-import Landing from "./layout/landing"
+import {
+  Route,
+  Switch,
+  Redirect,
+  BrowserRouter as Router,
+} from "react-router-dom"
+import AuthContext from "./Context/AuthContext"
+import Login from "./pages/login"
+import SignUp from "./pages/signup"
 import Profile from "./pages/profile"
 
 // // added react context to the project after realizing that passing
@@ -16,7 +23,17 @@ function App() {
         logout: () => setIsAuth(false),
       }}
     >
-      <div className='App'>{!isAuth ? <Landing /> : <Profile />}</div>
+      <Router>
+        <Switch>
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/signup' component={SignUp} />
+          {isAuth ? (
+            <Route exact path='/profile' component={Profile} />
+          ) : (
+            <Redirect to='/login' />
+          )}
+        </Switch>
+      </Router>
     </AuthContext.Provider>
   )
 }
